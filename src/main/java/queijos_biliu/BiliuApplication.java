@@ -16,8 +16,8 @@ public class BiliuApplication {
 //    private BigDecimal valor;
 //    private int quantidade;
 
-	public static void main(String[] args) {
-		SpringApplication.run(BiliuApplication.class, args);
+
+	public static void main(String[] args) {SpringApplication.run(BiliuApplication.class, args);
 
 		// criar produto
 		Produto queijoCoalho = new Produto(
@@ -43,6 +43,10 @@ public class BiliuApplication {
 		for (ItemPedido item : pedido.getItens()) {
 			System.out.println(item.getProduto().getNome() + "  quantidade: " + item.getQuantidade());
 		}
+		// Calcula e mostra o total
+		BigDecimal total = pedido.calcularTotal();
+
+		System.out.println("Total do pedido: R$ " + total);
 
 		//remover produdo
 		pedido.removerItem(1, "1");
@@ -52,12 +56,15 @@ public class BiliuApplication {
 			System.out.println(item.getProduto().getNome() + "  quantidade: " + item.getQuantidade());
 		}
 
+		// Calcula e mostra o total
+		total = pedido.calcularTotal();
+
+		System.out.println("Total do pedido: R$ " + total);
+
+
 		// teste do objeto Kaua -->
 
-		//ver oq se os intens foram removidos
-		//for (ItemPedido item : pedido.getItens()) {
-			//System.out.println(item.getProduto().getNome() + "  quantidade: " + item.getQuantidade());
-		//}
+
 	}
 
 }
