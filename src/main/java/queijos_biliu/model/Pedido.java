@@ -1,5 +1,6 @@
 package queijos_biliu.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,17 @@ public class Pedido {
                 }
             }
         }
+    }
+
+    public BigDecimal calcularTotal() {
+
+        BigDecimal total = BigDecimal.ZERO;
+
+        // aqui vamos percorrer os itens
+        for (ItemPedido item : itens) {
+            total = total.add(item.getProduto().getValor().multiply(BigDecimal.valueOf(item.getQuantidade())));
+        }
+        return total;
     }
 
     public List<ItemPedido> getItens() {
