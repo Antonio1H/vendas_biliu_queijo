@@ -22,6 +22,10 @@ public class Pedido {
 
             // Verifica se o produto desse item possui o ID procurado
             if (item.getProduto().getId().equals(id)) {
+                if(quantidade>item.getQuantidade()){
+                    System.out.println("remoção invalida por ultrapassar a quantidade do produto");
+                    return;
+                }
 
                 // Diminui da quantidade atual a quantidade que queremos remover
                 item.setQuantidade(item.getQuantidade() - quantidade);

@@ -61,7 +61,11 @@ public class BiliuApplication {
 
 		System.out.println("Total do pedido: R$ " + total);
 
-
+		// testar erro de remoção de produto
+		pedido.removerItem(2, "2");
+		for (ItemPedido item : pedido.getItens()) {
+			System.out.println(item.getProduto().getNome() + "  quantidade: " + item.getQuantidade());
+		}
 		// teste do objeto Kaua -->
 
 
