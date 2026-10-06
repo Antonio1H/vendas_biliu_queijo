@@ -58,4 +58,14 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    public boolean reduzirEstoque(int quantidade){
+        if(this.quantidade < quantidade){
+            System.out.println("Reducao do estoque invalidado");
+            return false;
+        }
+        this.quantidade -= quantidade;
+        System.out.println("Redução do estoque validado");
+        return true;
+    }
 }

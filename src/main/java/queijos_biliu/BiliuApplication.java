@@ -66,8 +66,8 @@ public class BiliuApplication {
 		for (ItemPedido item : pedido.getItens()) {
 			System.out.println(item.getProduto().getNome() + "  quantidade: " + item.getQuantidade());
 		}
-		// teste do objeto Kaua -->
 
+		// teste do objeto Kaua -->
 
 	}
 

@@ -8,6 +8,14 @@ public class Pedido {
 
     private List<ItemPedido> itens = new ArrayList<>();
 
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
+    }
+
     public void adicionarItem(Produto produto, int quantidade){
         itens.add(new ItemPedido(produto,quantidade));
     }
@@ -51,14 +59,5 @@ public class Pedido {
         }
         return total;
     }
-
-    public List<ItemPedido> getItens() {
-        return itens;
-    }
-
-    public void setItens(List<ItemPedido> itens) {
-        this.itens = itens;
-    }
-
 
 }
