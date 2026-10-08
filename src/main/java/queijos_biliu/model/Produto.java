@@ -1,30 +1,40 @@
+
 package queijos_biliu.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "produtos")
 public class Produto {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
     private String nome;
     private String descricao;
     private BigDecimal valor;
     private int quantidade;
 
-    //construtor
-    public Produto(String id,String nome, String descricao, BigDecimal valor, int quantidade) {
-        this.id = id;
+    public Produto() {
+    }
+
+    public Produto(String nome, String descricao,
+                   BigDecimal valor, int quantidade) {
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
         this.quantidade = quantidade;
     }
 
-    //gets e sets
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -57,15 +67,5 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public boolean reduzirEstoque(int quantidade){
-        if(this.quantidade < quantidade){
-            System.out.println("Reducao do estoque invalidado");
-            return false;
-        }
-        this.quantidade -= quantidade;
-        System.out.println("Redução do estoque validado");
-        return true;
     }
 }

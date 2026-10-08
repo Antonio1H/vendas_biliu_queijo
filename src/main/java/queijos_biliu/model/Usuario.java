@@ -1,13 +1,34 @@
+
 package queijos_biliu.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
+    @Column(nullable = false, length = 100)
     private String nome;
+
+    @Column(nullable = false, unique = true, length = 14)
     private String cpf;
+
+    @Column(nullable = false, unique = true, length = 150)
     private String email;
 
-    public Usuario(String id, String nome, String cpf, String email) {
-        this.id = id;
+    public Usuario() {
+    }
+
+    public Usuario(String nome, String cpf, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -15,10 +36,6 @@ public class Usuario {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNome() {
